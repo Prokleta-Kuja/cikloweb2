@@ -1,0 +1,42 @@
+---
+export interface Props {
+    title: string;
+    subTitle: string;
+    href: string;
+    btnText?: string;
+    img: string;
+}
+
+import cs from "../cs";
+
+const { subTitle, btnText, href, img } = Astro.props;
+const imgUrl = `url(${img})`;
+---
+
+<div class="container pb-5 kita">
+    <div class="row justify-content-center pb-5">
+        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 text-center">
+            <h5
+                class="text-light fw-light"
+                style={{ color: cs.SekundarnaBoja }}
+            >
+                {subTitle}
+            </h5>
+            <div
+                class="h1 text-light mb-3 pb-4"
+                style={{ color: cs.GlavnaBoja }}
+            >
+                {Astro.props.title}
+            </div>
+            <a class="btn btn-primary" href={href}>{btnText}</a>
+        </div>
+    </div>
+</div>
+
+<style define:vars={{ imgUrl }}>
+    .kita {
+        background-image: var(--imgUrl);
+        background-position: center !important;
+        background-size: cover !important;
+    }
+</style>

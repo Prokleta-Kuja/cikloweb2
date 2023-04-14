@@ -3,9 +3,12 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
+	button?: "primary" | "secondary";
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, button } = Astro.props;
+
+const btnCls = button ?? `primary`;
 ---
 
 <div class="col-sm-6 mb-3">
@@ -13,7 +16,7 @@ const { href, title, body } = Astro.props;
 		<div class="card-body">
 			<h5 class="card-title">{title}<span>&rarr;</span></h5>
 			<p class="card-text">{body}</p>
-			<a href={href} class="btn btn-primary">Go there</a>
+			<a href={href} class={`btn btn-${btnCls}`}>Go there</a>
 		</div>
 	</div>
 </div>

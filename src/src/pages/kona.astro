@@ -3,18 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import ImgWithTextSection from "../components/ImgWithTextSection.astro";
 import hero from "./hero-bg.jpg";
+import BikeSizes from "../components/BikeSizes.astro";
+import { IAdultBike, Sizes, Suspension } from "../IBike";
+
+const bike: IAdultBike = {
+	fork: "fox",
+	suspension: Suspension.Full,
+	frame: "alu",
+	sizes: [Sizes.L, Sizes.M],
+};
 ---
 
 <Layout title="Ciklo-Sport" description="Puši rac">
 	<main class="container">
-		<h1 class="text-center"><u>Pozdrav</u> okrutni svijete!</h1>
-		<ImgWithTextSection
-			title="Naslov"
-			subTitle="Podnaslov"
-			href="#nigdje"
-			btnText="Klik"
-			img={hero}
-		/>
+		<h1 class="text-center"><u>Pozdrav</u> kona0</h1>
+		<BikeSizes sizes={bike.sizes} />
 		<div class="row">
 			<Card
 				href="https://docs.astro.build/"

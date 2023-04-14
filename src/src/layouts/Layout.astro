@@ -1,19 +1,26 @@
 ---
 export interface Props {
 	title: string;
+	description?: string;
+	ignoreDescriptionLength?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, description, ignoreDescriptionLength } = Astro.props;
+
+if (!ignoreDescriptionLength)
+	if (description && description.length > 10)
+		throw new Error("Description longer than 100");
 ---
 
 <!DOCTYPE html>
-<html lang="hr" data-bs-theme="dark">
+<html lang="hr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
 		<link rel="stylesheet" href="/bootstrap.min.css" />
 	</head>
 	<body>
