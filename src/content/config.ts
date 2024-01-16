@@ -1,12 +1,13 @@
 import { z, defineCollection } from 'astro:content';
 
-const bicikliCollection = defineCollection({
+const bicyclesCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    price: z.number(),
   })
 });
 
 export const collections = {
-  'bicikli': bicikliCollection,
+  'bicycles': bicyclesCollection,
 };
