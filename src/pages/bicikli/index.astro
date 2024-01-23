@@ -7,7 +7,7 @@ const bicyclesEntries = await getCollection("bicycles");
   {
     bicyclesEntries.map((bicycleEntry) => (
       <li>
-        <a href={`/bicikli/${bicycleEntry.slug}`}>{bicycleEntry.data.title}</a>
+        <a href={`/bicikli/${bicycleEntry.slug}`}>{bicycleEntry.data.title}, {bicycleEntry.data.price }</a>
       </li>
     ))
   }

@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+const bicyclesEntries = await getCollection("bicycles");
+---
+
+<ul>
+  {
+    bicyclesEntries.filter(entry=>entry.data.title.startsWith("Kona")).map((bicycleEntry) => (
+      <li>
+        <a href={`/bicikli/kona/${bicycleEntry.slug}`}>{bicycleEntry.data.title}, {bicycleEntry.data.price }</a>
+      </li>
+    ))
+  }
+</ul>

@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const bicycleEntries = await getCollection("bicycles");
-  return bicycleEntries.filter(entry=>entry.data.title.startsWith("Kona")).map((entry) => ({
+  return bicycleEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));

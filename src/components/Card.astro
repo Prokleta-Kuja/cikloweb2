@@ -3,12 +3,14 @@ interface Props {
 	title: string;
 	body: string;
 	href: string;
+	bgcolor?: string;
+	pederčina?: boolean;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, bgcolor,pederčina } = Astro.props;
 ---
-
-<li class="link-card">
+{pederčina && <h1>Ti si pederčina</h1>}
+<li class="link-card" style={`background-color:${bgcolor ?? "#000"};`}>
 	<a href={href}>
 		<h2>
 			{title}
@@ -24,7 +26,6 @@ const { href, title, body } = Astro.props;
 		list-style: none;
 		display: flex;
 		padding: 1px;
-		background-color: #000;
 		background-image: none;
 		background-size: 400%;
 		border-radius: 7px;
